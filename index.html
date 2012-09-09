@@ -1,0 +1,266 @@
+<html>
+	<head>
+		<title>wordSwap jQuery Plugin</title>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css" />
+		<link rel="stylesheet" href="css/main.css" type="text/css" />
+		<link rel="stylesheet" href="syntaxhighlighter/styles/shCore.css" type="text/css"/>
+		<link rel="stylesheet" href="syntaxhighlighter/styles/shThemeDefault.css" type="text/css"/>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
+		<script src="js/wordswap.js" type="text/javascript"></script>
+		
+		<script src="syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+		<script src="syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+		<script src="syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+		<script type="text/javascript">SyntaxHighlighter.all();</script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<div class="hero-unit" ><h1 id="mainHeader">wordSwap jQuery Plugin</h1></div>
+				</div>
+			<div class="row">
+				<div class="span10 offset1">
+					<h2>
+						Introduction:
+					</h2>
+					<p>
+						wordSwap is a simple jQuery plugin that allows you transition between blocks of text with several effects.
+					</p>
+					<h3>
+						Setup:
+					</h3>
+					<p>
+						<h4> Get the code:</h4>
+						<table class="table">
+							<tr>
+								<td>
+									On github:
+								</td>
+								<td>
+									&nbsp;
+								</td>
+								<td>
+									 <a href="" class="btn btn-primary btn-large">download it</a>
+								</td>
+							</tr>
+							<tr>
+								<td>From this site:</td>
+								<td>
+									&nbsp;
+								</td>
+								<td>
+						<a href="js/wordswap.js" class="btn btn-primary btn-large">download it</a>
+								</td>
+							</tr>
+						</table>
+						<br />
+					</p>
+					<pre class="brush: xml">
+						<!-- you need to add the jquery library -->
+						<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js" type="text/javascript"></script>
+						<!-- also you need to include the wordSwap js file -->
+						<script src="js/wordswap.js" type="text/javascript"></script>
+
+					</pre>
+					<br />
+					<p>
+						
+						<h4>Default settings:</h4>
+						<pre class="brush: js">
+							$(document).ready(function(){
+								// pass the selector into the wordSwap fn 
+								$('#defaultSwap').wordSwap(); // no parameters... Fills in defaults.
+							});
+						</pre>
+						<pre class="brush: xml">
+							<!--the some code is just below on the page: -->
+							Swap out the thing below:
+							<div id="defaultSwap" style="color:red;font-size: 30px;"></div>
+						</pre>
+						<script type="text/javascript" >
+							$(document).ready(function(){
+								$('#test2').wordSwap(); // no parameters...
+							});
+						</script>
+						<p>
+							Swap out the thing below:
+							<div id="test2" style="color:red;font-size: 30px;"></div>
+						</p>
+					</p>
+					<br />
+					<br />
+					<br />
+					<h3>
+						Usage:
+					</h3>
+					<p>
+						A simple usage case is if you have one word you want to swap out for another on the click of a button:
+					</p>
+					<pre class="brush: js">
+						$(document).ready(function(){
+							
+							$('#someButton').click(function(){
+								
+								// pass in a single word to swap 1 time:
+								$('#swapMe').wordSwap({"newWord":"just a test"});
+								
+							})
+							
+						});
+					</pre>
+					<pre class="brush: xml">
+						<div id="#swapMe">Original text...</div>
+					</pre>
+					<p>
+						<h4> Test below:</h4>
+						<script type="text/javascript">
+							$(document).ready(function(){
+								
+								// pass in a single word to swap 1 time:
+								$('#btn1').click(function(){
+									$('#test3').wordSwap({"newWord":"just a test"});
+								});
+							});
+						</script>
+						<button id="btn1">Test me</button>
+						<h2 id="test3" style="color:blue;">ORIGINAL WORD</h2>
+					</p>
+					<br />
+					<br />
+					<p>
+						<h3>Passing your own word array:</h3>
+						<pre class="brush: js">
+							$(document).ready(function(){
+								// pass the selector into the wordSwap fn 
+								$('#arraySwaper').wordSwap({
+									wordArray:['Wow this is cool',
+												'I am adding my own words',
+												'If I make them really long',
+												'I will need to change',
+												'The loop interval time..'
+												],
+									simpleMode: true // prevents the airport effect.
+										}); 
+							});
+						</pre>
+						<pre class="brush: xml">
+							Swap out the thing below:
+							<div id="arraySwaper" style="color:green;font-size: 30px;"></div>
+						</pre>
+						<script type="text/javascript" >
+							$(document).ready(function(){
+								$('#test4').wordSwap({
+									wordArray:['Wow this is cool',
+												'I am adding my own words',
+												'If I make them really long',
+												'I will need to change',
+												'The loop interval time..'
+												],
+									simpleMode: true // prevents the airport effect:
+										}); 
+							});
+						</script>
+						<p>
+							Swap out the thing below:
+							<div id="test4" style="color:green;font-size: 30px;"></div>
+						</p>
+					</p>
+					
+					<p>
+						&nbsp;
+					</p>
+					<p>
+						<h2>
+							Changing the default char array, and times:
+						</h2>
+						<pre class="brush: js">
+							$(document).ready(function(){
+								// pass the selector into the wordSwap fn 
+								$('#arraySwaper2').wordSwap({
+									wordArray:['Progress',
+												'Potential',
+												'Perseverance',
+												'Profit'
+												],
+									customChars: ['.', '!', '#', '&amp;', '{', '}', '?', '*', '^', '$', '@', '+', '=', '-'],
+									intervalWord: 4000,
+									intervalLetter: 300
+									}); 
+							});
+						</pre>
+						<pre class="brush: xml">
+							Swap out the thing below:
+							<div id="arraySwaper2" style="color:red;font-size: 30px;"></div>
+						</pre>
+						<script type="text/javascript" >
+							$(document).ready(function(){
+								$('#test5').wordSwap({
+									wordArray:['Progress',
+												'Potential',
+												'Perseverance',
+												'Profit'
+												],
+									customChars: ['.', '!', '#', '&', '{', '}', '?', '*', '^', '$', '@', '+', '=', '-'],
+									intervalWord: 4000,
+									intervalLetter: 300
+									}); 
+							});
+						</script>
+						<p>
+							Swap out the thing below:
+							<div id="test5" style="color:red;font-size: 30px;"></div>
+						</p>
+					</p>
+					
+					<p>
+						&nbsp;
+					</p>
+					<hr />
+					<h2>
+						Default parameters:
+					</h2>
+					<pre class="brush: js">
+					/*
+					 * Param guide:
+					 * 'newWord' - if you define a single word: - it will just swap out a word, one time
+					 * 'wordArray' - if you pass an array, it will use this 
+					 * 'customChars' - pass in your own array of symbols to loop over
+					 * 'simpleMode' - if true, only swap letters, no 'Airport effect'
+					 * 'intervalLetter' -  to swap each letter - 100 is about good for a small array
+					 * 'charArr' - there are 5 predefined- pick one of them or use 'customChars'
+					 */
+ 
+					'newWord'         	: null,
+					'wordArray' 		: ['testing', 'another test', 'final test'],
+					'simpleMode'  		: false,
+					'intervalLetter' 	: 100,
+					'intervalWord' 		: 5000,
+					'loopOnce'			: false,
+					'customChars'		: null,
+					'charArr'			: 1 
+					</pre>
+					
+					
+					<hr />
+					<p>
+						&nbsp;
+					</p>
+				</div>
+			</div>
+			</div>
+			<footer>
+				<div class="span8 offset2">
+					&copy; Aaron Decker 2012
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
