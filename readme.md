@@ -21,6 +21,6 @@ $('#wordSwaparea').wordSwap({
 
 Full Guide:
 
-http://a-r-d.me/wordSwap
+http://a-r-d.me/plugins/wordSwap/index.html
 
 
